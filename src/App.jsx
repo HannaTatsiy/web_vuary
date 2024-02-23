@@ -1,13 +1,17 @@
 import './App.css'
-import GuestHomePage from "./pages/home/guestHomePage.jsx";
+import {Route, Routes} from "react-router-dom";
+import AuthLayout from "./components/layouts/authLayout.jsx";
+import AuthHomePage from "./pages/home/authHomePage.jsx";
 
 function App() {
 
-  return (
-    <>
-    <GuestHomePage/>
-    </>
-  )
+    return (
+        <Routes>
+            <Route element={<AuthLayout/>}>
+                <Route path={"/"} element={<AuthHomePage/>}/>
+            </Route>
+        </Routes>
+    )
 }
 
 export default App

@@ -1,12 +1,7 @@
-import {useState} from "react";
 import {useForm} from "react-hook-form";
 import {ButtonGroup, Form, FormControl, FormLabel, InputGroup} from "react-bootstrap";
 
-export default function RegisterForm({myOnClick}) {
-
-    // TODO инициализация null, ждем Сашу...
-    const [valuePhone, setValuePhone] = useState(true);
-    const [valueEmail, setValueEmail] = useState(true);
+export default function RegisterForm() {
 
     // методы для управления формой
     const {
@@ -17,11 +12,8 @@ export default function RegisterForm({myOnClick}) {
 
     // отправка данных на сервер
     function submit(data) {
-        // TODO проверить корректность почты и номера телефона на стороне сервера, ждем Сашу...
-        // TODO нужно отправить запрос /register на сервер, ждем Сашу...
+        // TODO нужно отправить запрос /register на сервер
     }
-
-    // TODO тут будет метод для проверки корректности почты, номера телефона, ждем Сашу...
 
     return (
         <div className="card max-width-500px shadow">
@@ -140,11 +132,6 @@ export default function RegisterForm({myOnClick}) {
                                         message: "Некорректный номер телефона!"
                                     },
 
-                                    validate: value => {
-                                        // TODO проверить корректность номера телефона на стороне сервера, ждем Сашу...
-                                        return valuePhone || 'Данный номер уже используется!'
-                                    }
-
                                 })}
                                 isInvalid={!!errors.number}>
                             </FormControl>
@@ -171,12 +158,8 @@ export default function RegisterForm({myOnClick}) {
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                         message: "Некорректный email адрес!"
-                                    },
-
-                                    validate: value => {
-                                        // TODO проверить корректность почты и номера телефона на стороне сервера, ждем Сашу...
-                                        return valueEmail || 'Клиент с данной почтой уже зарегистрирован!'
                                     }
+
                                 })}
                                 isInvalid={!!errors.email}>
                             </FormControl>
@@ -263,10 +246,6 @@ export default function RegisterForm({myOnClick}) {
                     </div>
 
                 </Form>
-
-                <div className="card-text font-size-10pt text-center mt-2 mb-2" onClick={(e) => myOnClick(e)}>
-                    <a className="text-orange">Уже есть аккаунт? Войдите</a>
-                </div>
 
             </div>
         </div>)
