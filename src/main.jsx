@@ -9,10 +9,11 @@ import {Provider} from 'react-redux'
 
 import './assets/lib/bootstrap/css/bootstrap.min.css';
 import './assets/lib/bootstrap/js/bootstrap.bundle.min.js';
+import usersReducer from "./reducers/userReducer.jsx";
 
 const store = configureStore({
     reducer: {
-
+        users: usersReducer
     }
 })
 
